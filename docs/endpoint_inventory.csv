@@ -1,0 +1,7 @@
+Resource,Endpoint,Method,Description,Priority,Status
+Orders,/v3/orders,GET,List orders,v0.1.0,planned
+Orders,/v3/orders/{purchaseOrderId},GET,Get order,v0.1.0,planned
+Inventory,/v3/inventory,GET,Get inventory,v0.1.0,planned
+Inventory,/v3/inventory,PUT,Update inventory,v0.1.0,planned
+Items,/v3/items,GET,List items,v0.1.0,planned
+Items,/v3/items/{sku},GET,Get item,v0.1.0,planned
