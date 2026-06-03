@@ -1,7 +1,13 @@
-Resource,Endpoint,Method,Description,Priority,Status
-Orders,/v3/orders,GET,List orders,v0.1.0,planned
-Orders,/v3/orders/{purchaseOrderId},GET,Get order,v0.1.0,planned
-Inventory,/v3/inventory,GET,Get inventory,v0.1.0,planned
-Inventory,/v3/inventory,PUT,Update inventory,v0.1.0,planned
-Items,/v3/items,GET,List items,v0.1.0,planned
-Items,/v3/items/{sku},GET,Get item,v0.1.0,planned
+Resource,Endpoint,Method,Description,PathParams,QueryParams,RequestBody,Priority,Status,ReferenceSlug,Notes
+Orders,/v3/orders,GET,List orders,,,no,v0.1.0,planned,getallorders,
+Orders,/v3/orders/{purchaseOrderId},GET,Get order,purchaseOrderId,,no,v0.1.0,planned,,
+Inventory,/v3/inventory,GET,Get inventory for a single SKU,,sku (required); shipNode (optional),no,v0.1.0,planned,getinventory,Single-node inventory lookup
+Inventory,/v3/inventory,PUT,Update inventory for a single item,,sku (required); shipNode (optional),"sku; quantity (object); inventoryAvailableDate (optional)",v0.1.0,planned,updateinventoryforanitem,Single-node inventory update
+Inventory,/v3/inventories,GET,List multi-node inventory for all SKUs and ship nodes,,"limit (default 10); nextCursor",no,v0.2.0,planned,getmultiNodeinventoryforallskuandallshipnodes,Cursor-based pagination
+Inventory,/v3/inventories/{sku},GET,Get single item inventory across all ship nodes,sku,shipNode (optional),no,v0.2.0,planned,getmultiNodeinventoryforskuandallshipnodes,Multi-node inventory for one SKU
+Inventory,/v3/inventories/{sku},PUT,Update multi-node inventory for a single item,sku,,inventories (object),v0.2.0,planned,updatemultiNodeinventory,Updates inventory across ship nodes
+Inventory,/v3/fulfillment/inventory,GET,Get WFS inventory (legacy),,"sku; fromModifiedDate; toModifiedDate; limit (default 10); offset (default 0); shipNodeType",no,future,planned,getwfsinventory,DEPRECATED — WFS fulfillment inventory
+Inventory,/v3/fulfillment/inventory-log,GET,Get WFS inventory transaction log,,"gtin (required); shipmentId; transactionType; transactionLocation; startDate; endDate; sort_by; sort_order; offset (default 0); limit (default 50)",no,future,planned,getwfsinventorylog,WFS-only; requires Authorization header
+Inventory,/v3/report/wfs/getInventoryHealthReport,GET,Get WFS inventory health report,,,no,future,planned,getinventoryhealthreport,Returns application/octet-stream binary report
+Items,/v3/items,GET,List items,,,no,v0.1.0,planned,,
+Items,/v3/items/{sku},GET,Get item,sku,,no,v0.1.0,planned,getanitem,
