@@ -3,6 +3,7 @@
 require_relative "walmart_api/version"
 require_relative "walmart_api/errors"
 require_relative "walmart_api/configuration"
+require_relative "walmart_api/auth/signature_generator"
 
 module WalmartApi
   class << self
