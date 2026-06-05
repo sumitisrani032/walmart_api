@@ -2,6 +2,7 @@
 
 require "walmart_api"
 require "webmock/rspec"
+require "tempfile"
 
 RSpec.configure do |config|
   config.expect_with :rspec do |expectations|
