@@ -1,0 +1,8 @@
+{
+  "sku": "SKU-001",
+  "quantity": {
+    "unit": "EACH",
+    "amount": 150
+  },
+  "shipNode": "node_123"
+}
