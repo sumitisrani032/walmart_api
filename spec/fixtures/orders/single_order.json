@@ -1,0 +1,82 @@
+{
+  "purchaseOrderId": "2577374099943",
+  "customerOrderId": "4021838399813",
+  "customerEmailId": "customer@example.com",
+  "orderDate": 1622548800000,
+  "estimatedDeliveryDate": 1623158400000,
+  "estimatedShipDate": 1622894400000,
+  "orderLines": {
+    "orderLine": [
+      {
+        "lineNumber": "1",
+        "item": {
+          "productName": "Awesome Widget",
+          "sku": "SKU-001"
+        },
+        "charges": {
+          "charge": [
+            {
+              "chargeType": "PRODUCT",
+              "chargeName": "ItemPrice",
+              "chargeAmount": {
+                "currency": "USD",
+                "amount": 29.99
+              }
+            }
+          ]
+        },
+        "orderLineQuantity": {
+          "unitOfMeasurement": "EACH",
+          "amount": "1"
+        },
+        "statusDate": 1622548800000,
+        "orderLineStatuses": {
+          "orderLineStatus": [
+            {
+              "status": "Created",
+              "statusQuantity": {
+                "unitOfMeasurement": "EACH",
+                "amount": "1"
+              }
+            }
+          ]
+        }
+      },
+      {
+        "lineNumber": "2",
+        "item": {
+          "productName": "Super Gadget",
+          "sku": "SKU-002"
+        },
+        "charges": {
+          "charge": [
+            {
+              "chargeType": "PRODUCT",
+              "chargeName": "ItemPrice",
+              "chargeAmount": {
+                "currency": "USD",
+                "amount": 49.99
+              }
+            }
+          ]
+        },
+        "orderLineQuantity": {
+          "unitOfMeasurement": "EACH",
+          "amount": "2"
+        },
+        "statusDate": 1622635200000,
+        "orderLineStatuses": {
+          "orderLineStatus": [
+            {
+              "status": "Acknowledged",
+              "statusQuantity": {
+                "unitOfMeasurement": "EACH",
+                "amount": "2"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

@@ -23,5 +23,13 @@ Metrics/BlockLength:
     - "spec/**/*"
     - "walmart_api.gemspec"
 
+RSpec/MultipleMemoizedHelpers:
+  Exclude:
+    - "spec/**/*"
+
+RSpec/ExampleLength:
+  Exclude:
+    - "spec/**/*"
+
 Style/Documentation:
   Enabled: false
