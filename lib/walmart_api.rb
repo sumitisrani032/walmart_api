@@ -6,6 +6,10 @@ require_relative "walmart_api/configuration"
 require_relative "walmart_api/auth/signature_generator"
 require_relative "walmart_api/auth/token_manager"
 require_relative "walmart_api/middleware/authentication"
+require_relative "walmart_api/middleware/error_handler"
+require_relative "walmart_api/response"
+require_relative "walmart_api/paginated_response"
+require_relative "walmart_api/resources/base"
 
 module WalmartApi
   class << self
