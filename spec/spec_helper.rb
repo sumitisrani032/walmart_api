@@ -1,5 +1,15 @@
 # frozen_string_literal: true
 
+require "simplecov"
+
+SimpleCov.start do
+  add_filter "/spec/"
+  add_filter "/vendor/"
+  enable_coverage :branch
+  minimum_coverage 80
+  minimum_coverage_by_file 85
+end
+
 require "walmart_api"
 require "webmock/rspec"
 require "tempfile"
