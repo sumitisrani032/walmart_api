@@ -1,0 +1,11 @@
+{
+  "sku": "SKU-001",
+  "productName": "Awesome Widget",
+  "productType": "Electronics",
+  "publishedStatus": "PUBLISHED",
+  "lifecycleStatus": "ACTIVE",
+  "price": {
+    "amount": 99.99,
+    "currency": "USD"
+  }
+}
