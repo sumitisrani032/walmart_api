@@ -13,6 +13,7 @@ require_relative "walmart_api/resources/base"
 require_relative "walmart_api/resources/orders"
 require_relative "walmart_api/resources/inventory"
 require_relative "walmart_api/resources/items"
+require_relative "walmart_api/client"
 
 module WalmartApi
   class << self

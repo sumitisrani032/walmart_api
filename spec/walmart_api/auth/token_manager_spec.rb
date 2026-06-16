@@ -45,6 +45,23 @@ RSpec.describe WalmartApi::Auth::TokenManager do
         .to have_been_made
     end
 
+    it "sends Walmart service name header" do
+      stub_token_request
+      token_manager.access_token
+      expect(a_request(:post, token_url).with(headers: { "WM_SVC.NAME" => "Walmart Marketplace" }))
+        .to have_been_made
+    end
+
+    it "sends Walmart correlation id header" do
+      stub_token_request
+      token_manager.access_token
+      uuid_pattern = /\A[0-9a-f]{8}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{4}-[0-9a-f]{12}\z/
+      expect(a_request(:post, token_url).with do |request|
+        correlation_header = request.headers.find { |key, _| key.downcase == "wm-qos.correlation-id" }
+        correlation_header&.last&.match?(uuid_pattern)
+      end).to have_been_made
+    end
+
     it "sends correct grant_type" do
       stub_token_request
       token_manager.access_token

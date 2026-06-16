@@ -2,12 +2,14 @@
 
 require "base64"
 require "faraday"
+require "securerandom"
 
 module WalmartApi
   module Auth
     class TokenManager
       TOKEN_PATH = "/v3/token"
       DEFAULT_BUFFER_SECONDS = 60
+      SERVICE_NAME = "Walmart Marketplace"
 
       def initialize(configuration, buffer_seconds: DEFAULT_BUFFER_SECONDS)
         @configuration = configuration
@@ -43,11 +45,13 @@ module WalmartApi
         @expires_at = Time.now + body["expires_in"].to_i - @buffer_seconds
       end
 
-      def request_token
+      def request_token # rubocop:disable Metrics/AbcSize
         response = connection.post(TOKEN_PATH) do |req|
           req.headers["Authorization"] = "Basic #{encoded_credentials}"
           req.headers["Content-Type"] = "application/x-www-form-urlencoded"
           req.headers["Accept"] = "application/json"
+          req.headers["WM_SVC.NAME"] = SERVICE_NAME
+          req.headers["WM_QOS.CORRELATION_ID"] = SecureRandom.uuid
           req.body = "grant_type=client_credentials"
         end
 
